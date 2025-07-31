@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read a single line and split it into 5 integers
+        String[] input = sc.nextLine().split(" ");
+        long[] arr = new long[5];
+
+        for (int i = 0; i < 5; i++) {
+            arr[i] = Long.parseLong(input[i]);
+        }
+
+        Arrays.sort(arr);
+
+        long minSum = 0;
+        long maxSum = 0;
+
+        // Sum first 4 for minSum
+        for (int i = 0; i < 4; i++) {
+            minSum += arr[i];
+        }
+
+        // Sum last 4 for maxSum
+        for (int i = 1; i < 5; i++) {
+            maxSum += arr[i];
+        }
+
+        System.out.println(minSum + " " + maxSum);
+    }
+}
